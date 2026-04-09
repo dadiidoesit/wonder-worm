@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1410; color: #e8dcc8; font-family: 'Crimson Text', Georgia, serif; padding: 40px 20px; min-height: 100vh; }
+  .page { max-width: 800px; margin: 0 auto; background: #2a2118; border: 2px solid #5a4a32; border-radius: 4px; padding: 48px 40px; box-shadow: 0 0 60px rgba(0,0,0,0.5); }
+  .header { text-align: center; border-bottom: 2px solid #5a4a32; padding-bottom: 24px; margin-bottom: 32px; }
+  .header h1 { font-family: 'Cinzel', serif; font-size: 36px; color: #c9a84c; letter-spacing: 3px; margin-bottom: 8px; }
+  .header .tagline { font-style: italic; color: #a89070; font-size: 16px; margin-bottom: 12px; }
+  .header .motto { font-size: 13px; color: #7a6a52; letter-spacing: 1px; text-transform: uppercase; }
+  .section-title { font-family: 'Cinzel', serif; font-size: 20px; color: #c9a84c; letter-spacing: 2px; text-transform: uppercase; margin-top: 32px; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 1px solid #4a3a22; }
+  .item { margin-bottom: 20px; padding: 12px 16px; background: #221c14; border-left: 3px solid #5a4a32; border-radius: 0 4px 4px 0; }
+  .item.sold-out { opacity: 0.45; }
+  .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex-wrap: wrap; gap: 8px; }
+  .item-name { font-family: 'Cinzel', serif; font-size: 17px; color: #e0c88a; font-weight: 700; }
+  .item-name .new-tag { font-family: 'Crimson Text', serif; font-size: 11px; background: #8b4513; color: #e8dcc8; padding: 1px 6px; border-radius: 2px; margin-left: 6px; vertical-align: middle; letter-spacing: 1px; text-transform: uppercase; }
+  .item-name .sale-tag { font-family: 'Crimson Text', serif; font-size: 11px; background: #6b1a1a; color: #e8a0a0; padding: 1px 6px; border-radius: 2px; margin-left: 6px; vertical-align: middle; letter-spacing: 1px; text-transform: uppercase; }
+  .item-price { font-family: 'Cinzel', serif; font-size: 16px; color: #c9a84c; white-space: nowrap; }
+  .item-price .original { text-decoration: line-through; color: #7a6a52; font-size: 13px; margin-right: 6px; }
+  .item-meta { font-size: 13px; color: #8a7a62; margin-bottom: 6px; font-style: italic; }
+  .item-desc { font-size: 15px; line-height: 1.5; color: #c8b8a0; }
+  .item-mechanic { font-size: 14px; color: #a09880; margin-top: 4px; padding-left: 12px; border-left: 1px solid #4a3a22; }
+  .item-flavor { font-size: 13px; color: #7a6a52; font-style: italic; margin-top: 4px; }
+  .sold-label { font-size: 11px; background: #3a2a1a; color: #6a5a42; padding: 1px 6px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; }
+  .divider { border: none; border-top: 1px dashed #3a2a1a; margin: 32px 0; }
+  .services-note { text-align: center; color: #8a7a62; font-style: italic; font-size: 15px; margin: 16px 0; }
+  .phlebotomy-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  .phlebotomy-table th { font-family: 'Cinzel', serif; font-size: 13px; color: #c9a84c; text-align: left; padding: 6px 12px; border-bottom: 1px solid #4a3a22; letter-spacing: 1px; }
+  .phlebotomy-table td { font-size: 14px; padding: 6px 12px; border-bottom: 1px solid #2a2218; color: #c8b8a0; }
+  .phlebotomy-table tr:hover td { background: #2a2218; }
+  .stock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; margin: 8px 0 12px 0; }
+  .stock-item { display: flex; justify-content: space-between; font-size: 14px; color: #c8b8a0; padding: 3px 0; border-bottom: 1px dotted #2a2218; }
+  .stock-item .stock-price { color: #a89070; white-space: nowrap; font-family: 'Cinzel', serif; font-size: 13px; }
+  .footer { text-align: center; margin-top: 40px; padding-top: 24px; border-top: 2px solid #5a4a32; color: #5a4a32; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+  @media print { body { background: white; color: #1a1a1a; padding: 0; } .page { box-shadow: none; border: none; padding: 24px; } .item { background: #f8f4ee; border-left-color: #8a7a62; } .item-name { color: #2a2218; } .item-price { color: #8b6914; } .section-title { color: #8b6914; } .header h1 { color: #8b6914; } .item-desc { color: #333; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <h1>Wonder Worm Shop</h1>
+    <div class="tagline">"I may not have a spine-l, but believe you me, all sales are final!"</div>
+    <div class="motto">Purveyor of Fine Armaments, Curiosities & Bodily Enhancement</div>
+  </div>
+
+  <div class="section-title">Weapons</div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Trident of Lightning</span><span class="item-price">1,500 gp</span></div>
+    <div class="item-meta">Weapon, Uncommon, Requires Attunement</div>
+    <div class="item-desc">This trident is a magic weapon. When hurled with the command word, it transforms into a bolt of lightning: a 5 ft wide line out to 120 ft. Each creature in the line (excluding wielder and target) makes a DC 13 Dex save, taking 4d6 lightning on a fail, half on success. The bolt becomes a trident at the target; make a ranged attack for 1d6+STR plus 4d6 lightning on hit.</div>
+    <div class="item-mechanic">Special property usable once per day.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Holycrest <span class="sale-tag">SALE</span></span><span class="item-price"><span class="original">4,500 gp</span> 4,500 gp</span></div>
+    <div class="item-meta">Weapon, Unique, Longsword</div>
+    <div class="item-desc">A one-handed sword given to a certain knight with the power to ward off the undead. 1d10 slashing, versatile 1d12. On hit against undead, deals an extra 2d10 radiant damage.</div>
+    <div class="item-flavor">The Worm acquired this from a paladin who needed quick coin. The paladin is fine. Probably.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Ethereal Crossbow</span><span class="item-price">800 gp</span></div>
+    <div class="item-meta">Weapon, Unique, +2 Light Crossbow</div>
+    <div class="item-desc">So light you could say it's not even there. Infinite ammo; fires ethereal bolts. 1d8 piercing, range 40/160, no-handed. Deals an additional 2d8 to foes that don't originate from the material plane.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">BOOMerang</span><span class="item-price">600 gp</span></div>
+    <div class="item-meta">Weapon, Unique, Ranged</div>
+    <div class="item-desc">A boomerang loaded with explosive gunpowder. Ranged attack: on hit, 2d10+5 sonic damage; target takes 2d6 fire on its next turn. On a miss, inflicts this damage on the wielder as it returns.</div>
+    <div class="item-flavor">Caveat emptor.</div>
+  </div>
+
+  <div class="item sold-out">
+    <div class="item-header"><span class="item-name">The BIG Book of Spells <span class="sold-label">Sold Out</span></span><span class="item-price">12,000 gp</span></div>
+    <div class="item-meta">Weapon, Unique, Spellbook</div>
+    <div class="item-desc">Compiled book of all known wizard spells. As an action, open to a random page; that spell is immediately cast using one of your highest available spell slots. Cancel at the cost of one additional slot of equal value. No slots, no open.</div>
+  </div>
+
+  <div class="section-title">Armor</div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Catcher's Mitt</span><span class="item-price">900 gp</span></div>
+    <div class="item-meta">Gauntlet, Unique</div>
+    <div class="item-desc">+2 AC against ranged attacks. When an attacker makes a ranged attack against a target within 5 ft, use your reaction to become the target instead. Can be equipped alongside a shield.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Pacifist's Plate</span><span class="item-price">2,000 gp</span></div>
+    <div class="item-meta">Light Armor, Unique, AC 12</div>
+    <div class="item-desc">The armor of one who knows the grace of gods. Some say it's not really armor at all. In combat, until the wearer takes any aggressive action against any enemy, reduce all incoming attack and spell damage to 0. Does not reduce environmental or accidental self-inflicted harm.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Spell Shield <span class="new-tag">NEW</span></span><span class="item-price">900 gp</span></div>
+    <div class="item-meta">Shield, Very Rare</div>
+    <div class="item-desc">+2 AC. When targeted by a spell attack, use your reaction to redirect the spell to one of your allies.</div>
+    <div class="item-flavor">A shield for team players and terrible friends.</div>
+  </div>
+
+  <div class="section-title">Accessories</div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Spiky Sticky Shoes</span><span class="item-price">550 gp</span></div>
+    <div class="item-meta">Boots, Rare</div>
+    <div class="item-desc">The wearer of these cool cleats is immune to physical forced movement.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Jump King Boots</span><span class="item-price">700 gp</span></div>
+    <div class="item-meta">Boots, Rare</div>
+    <div class="item-desc">Deceptively heavy spring-loaded boots. Jump up to 15 ft without a check.</div>
+    <div class="item-flavor">"Ooo, he jumpin'!"</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Revolver Speed Reloader</span><span class="item-price">1,000 gp</span></div>
+    <div class="item-meta">Item, Unique</div>
+    <div class="item-desc">A canister full of mystery. Reload a revolver using your bonus action.</div>
+    <div class="item-flavor">"For the colony!"</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Hat of Many Hats <span class="sale-tag">SALE</span></span><span class="item-price"><span class="original">300 gp</span> 300 gp</span></div>
+    <div class="item-meta">Hat, Super Rare</div>
+    <div class="item-desc">It's a doppelganger pretending to be a hat, and it's really committed to the long con. Speak the command word to change it into a different kind of hat.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Ring of Animal Influence</span><span class="item-price">300 gp</span></div>
+    <div class="item-meta">Ring, Rare, 3 Charges (regains 1d3 at dawn)</div>
+    <div class="item-desc">Expend 1 charge to cast: Animal Friendship (DC 13), Fear targeting beasts with INT 3 or lower (DC 13), or Speak with Animals.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">The Golden Fleece</span><span class="item-price">600 gp</span></div>
+    <div class="item-meta">Pullover, Rare</div>
+    <div class="item-desc">A quarter-zip fleece pullover from Old Navy. Color: Goldenrod. Grants resistance to cold.</div>
+  </div>
+
+  <div class="section-title">Items</div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Bone Comb '78</span><span class="item-price">2,500 gp</span></div>
+    <div class="item-meta">Item, Wondrous</div>
+    <div class="item-desc">Blue comb made from the blue bones of a blue dragon. Makes you look fly. Once per day as a reaction, run through your hair to grant +10 to a Charisma save.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Skull</span><span class="item-price">450 gp</span></div>
+    <div class="item-meta">Item, Common</div>
+    <div class="item-desc">It's a skull, humanoid. If you know, you know.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">X-Ray Specs</span><span class="item-price">1,000 gp</span></div>
+    <div class="item-meta">Item, Wondrous</div>
+    <div class="item-desc">See into the pockets of others, revealing their gold and valuables. Advantage on Investigation checks when looting fallen foes. They look absolutely ridiculous.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">C.R.A.B. Early Warning Detection System</span><span class="item-price">500 gp</span></div>
+    <div class="item-meta">Item, Rare</div>
+    <div class="item-desc">It's time for crab. The crab will warn you of unseen threats. You can't be surprised or stabbed in the back. The crab will pinch you to get your attention, inflicting a small amount of damage.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Parchment Box</span><span class="item-price">350 gp</span></div>
+    <div class="item-meta">Item, Wondrous</div>
+    <div class="item-desc">An ordinary parchment box. Enemies would think, "It's just a box." It probably has fantasy apples inside. +10 to stealth rolls in urban environments.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">W.W. Personal Floatation Device</span><span class="item-price">150 gp</span></div>
+    <div class="item-meta">Item, Uncommon</div>
+    <div class="item-desc">Never worry about drowning again. Self-inflating ring float with a fun worm-eating-worm ouroboros motif.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Wonder Worm T-Shirt</span><span class="item-price">15 gp</span></div>
+    <div class="item-meta">Item, Uncommon</div>
+    <div class="item-desc">W.W.F., Wonder Worm Fanaticism shirt. Wonder Worm hype is running wild!</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Wonder Worm Novelty Magnet</span><span class="item-price">5 gp</span></div>
+    <div class="item-meta">Item, Unique</div>
+    <div class="item-desc">Collectible fridge magnet. Collect all four!</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Wonder Worm Collectible Bobble-head</span><span class="item-price">10 gp</span></div>
+    <div class="item-meta">Item, Unique</div>
+    <div class="item-desc">A faithful depiction of the real thing in PVC. Fool your friends into thinking it's the real Wonder Worm sitting on your shelf!</div>
+  </div>
+
+  <div class="section-title">Potions</div>
+  <div class="services-note">A sampling of current stock. Ask the Worm about availability and special orders.</div>
+  <div class="stock-grid">
+    <div class="stock-item"><span class="stock-name">Potion of Healing</span><span class="stock-price">50 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Potion of Greater Healing</span><span class="stock-price">150 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Potion of Fire Resistance</span><span class="stock-price">200 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Potion of Water Breathing</span><span class="stock-price">100 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Potion of Climbing</span><span class="stock-price">75 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Antitoxin</span><span class="stock-price">50 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Oil of Slipperiness</span><span class="stock-price">250 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Potion of Darkvision</span><span class="stock-price">120 gp</span></div>
+  </div>
+
+  <div class="section-title">Gemstones</div>
+  <div class="services-note">Mineral resources available for trade, spell components, or personal enrichment.</div>
+  <div class="stock-grid">
+    <div class="stock-item"><span class="stock-name">Azurite (opaque, deep blue)</span><span class="stock-price">10 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Moonstone (translucent white)</span><span class="stock-price">50 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Bloodstone (dark grey/red)</span><span class="stock-price">50 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Citrine (pale yellow-brown)</span><span class="stock-price">50 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Garnet (deep red)</span><span class="stock-price">100 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Alexandrite (dark green)</span><span class="stock-price">500 gp</span></div>
+  </div>
+
+  <div class="section-title">Mundane Supplies</div>
+  <div class="services-note">The basics of subterranean survival. More available upon request.</div>
+  <div class="stock-grid">
+    <div class="stock-item"><span class="stock-name">Hempen Rope (50 ft)</span><span class="stock-price">1 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Silk Rope (50 ft)</span><span class="stock-price">10 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Pitons (10)</span><span class="stock-price">1 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Grappling Hook</span><span class="stock-price">2 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Torch (bundle of 5)</span><span class="stock-price">5 sp</span></div>
+    <div class="stock-item"><span class="stock-name">Lantern, Hooded</span><span class="stock-price">5 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Oil Flask (5)</span><span class="stock-price">5 sp</span></div>
+    <div class="stock-item"><span class="stock-name">Tinderbox</span><span class="stock-price">5 sp</span></div>
+    <div class="stock-item"><span class="stock-name">Rations (1 day)</span><span class="stock-price">5 sp</span></div>
+    <div class="stock-item"><span class="stock-name">Waterskin</span><span class="stock-price">2 sp</span></div>
+    <div class="stock-item"><span class="stock-name">Healer's Kit (10 uses)</span><span class="stock-price">5 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Caltrops (bag of 20)</span><span class="stock-price">1 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Chain (10 ft)</span><span class="stock-price">5 gp</span></div>
+    <div class="stock-item"><span class="stock-name">Crowbar</span><span class="stock-price">2 gp</span></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title">Bodily Enhancement Services</div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Phlebotomy (Blood Exchange)</span><span class="item-price">Variable</span></div>
+    <div class="item-meta">Service - The Worm pays YOU</div>
+    <div class="item-desc">Donate blood and receive gold based on the uniqueness of your contribution. The Worm is very interested in seasoned specimens.</div>
+    <table class="phlebotomy-table">
+      <tr><th>Blood Type</th><th>Payout</th><th>Recovery</th></tr>
+      <tr><td>Standard humanoid</td><td>10 gp</td><td>No exhaustion</td></tr>
+      <tr><td>Non-human (elf, dwarf, halfling)</td><td>20 gp</td><td>No exhaustion</td></tr>
+      <tr><td>Draconic (dragonborn, half-dragon)</td><td>50 gp</td><td>1 level of exhaustion; clears after a long rest</td></tr>
+      <tr><td>Cursed or magically conditioned</td><td>75 gp</td><td>1 level of exhaustion; clears after a long rest</td></tr>
+      <tr><td>Astral-touched or planar-exposed</td><td>100 gp</td><td>2 levels of exhaustion; each clears after a separate long rest</td></tr>
+      <tr><td>Multiple qualifying conditions</td><td>Stacks</td><td>Highest applicable exhaustion tier</td></tr>
+    </table>
+    <div class="item-mechanic">The Worm draws more aggressively from rarer blood, requiring a greater volume and deeper extraction. Donors may sell blood multiple times per visit, but exhaustion levels stack with each additional session. A donor who sells three sessions of draconic blood in one sitting accrues 3 levels of exhaustion. The Worm recommends rest between draws but will not enforce one.</div>
+    <div class="item-flavor">"The redder the rarer, the rarer the dearer! Hold still, this won't hurt a bit. Well - not me, anyway."</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Dragon Blood Ministration</span><span class="item-price">500 gp</span></div>
+    <div class="item-meta">Procedure, Unique</div>
+    <div class="item-desc">A blood transfusion performed using the blood of a mighty dragon. The patient receives health-boosting effects and incredible resistance to ailments and disease.</div>
+    <div class="item-flavor">"We are born of the blood, made men by the blood, undone by the blood."</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header"><span class="item-name">Bodily Enhancement (Custom)</span><span class="item-price">Consult the Worm</span></div>
+    <div class="item-meta">Procedure, Varies</div>
+    <div class="item-desc">Part bird, part reptile! That could be you! Ask your favorite Worm about augmenting your weak and pathetic body, strengthening your mind, or giving yourself the pierced ears your parents would never let you have.</div>
+  </div>
+
+  <div class="footer">
+    All sales are final &bull; No refunds &bull; The Worm is not responsible for side effects<br>
+    &copy; The Wonder Worm's Emporium &bull; Underdark Branch &bull; Est. Before Your Grandparents
+  </div>
+</div>
+</body>
+</html>
