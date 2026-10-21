@@ -39,6 +39,22 @@
   .footer { text-align: center; margin-top: 40px; padding-top: 24px; border-top: 2px solid #5a4a32; color: #5a4a32; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
   @media print { body { background: white; color: #1a1a1a; padding: 0; } .page { box-shadow: none; border: none; padding: 24px; } .item { background: #f8f4ee; border-left-color: #8a7a62; } .item-name { color: #2a2218; } .item-price { color: #8b6914; } .section-title { color: #8b6914; } .header h1 { color: #8b6914; } .item-desc { color: #333; } }
 .sold-out .item-name s, .sold-out .item-price {text-decoration:line-through;} .item.sold-out {opacity:.65;} .sold-label {color:#c8b8a0;}
+
+  .page { max-width: 1180px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px 22px; }
+  .header, .section-title, .services-note, .stock-grid, .divider, .footer, .blood-program { grid-column: 1 / -1; }
+  .item { margin-bottom: 0; min-width: 0; }
+  .section-title { margin-top: 20px; margin-bottom: 0; }
+  .header { margin-bottom: 0; }
+  .divider { width: 100%; }
+  .item.sold-out { opacity: 1; background: #252525; border-left-color: #555; filter: grayscale(1); }
+  .sold-out .item-name, .sold-out .item-price { color: #888; }
+  .sold-out .item-desc, .sold-out .item-meta, .sold-out .item-mechanic, .sold-out .item-flavor { color: #777; }
+  .sold-out .sold-label { background: #3b3b3b; color: #aaa; }
+  .sold-out .item-name s, .sold-out .item-price { text-decoration-thickness: 2px; }
+  .new-tag { display: inline-block; }
+  .blood-program .item-desc + .item-desc { margin-top: 12px; }
+  @media(max-width:700px) { body {padding:16px 10px;} .page {padding:24px 16px;grid-template-columns:minmax(0,1fr);} .phlebotomy-table {font-size:12px;} .phlebotomy-table td,.phlebotomy-table th {padding:6px 3px;font-size:12px;} }
+  @media print { .page {background:white;} .item {break-inside:avoid;} .item.sold-out {background:#eee;} }
 </style>
 </head>
 <body>
@@ -84,7 +100,9 @@
     <div class="item-desc">Compiled book of all known wizard spells. As an action, open to a random page; that spell is immediately cast using one of your highest available spell slots. Cancel at the cost of one additional slot of equal value. No slots, no open.</div>
   </div>
 
-  <div class="section-title">Armor</div>
+  
+<div class="item"><div class="item-header"><span class="item-name">Black Gui&#x27;s Scimitar <span class="new-tag">✦ NEW</span></span><span class="item-price">2,800 gp</span></div><div class="item-meta">Magic weapon · Scimitar · Requires attunement</div><div class="item-desc">A soot-dark blade once carried by a celebrated pyromancer of the southern realms. Its blacksteel edge is heavier than fashion permits and considerably less forgiving. Inscriptions condemning the undead glow like banked coals when the blade draws near them.</div><div class="item-mechanic">+1 to attack and damage rolls. Deals 1d8 slashing damage; finesse, but not light. Weight: 6 lb.</div><div class="item-mechanic">Against undead, each hit deals an additional 1d8 radiant damage. Once per long rest, use a bonus action to ignite the blade for 1 minute; its hits deal an additional 1d6 fire damage.</div><div class="item-flavor">&quot;Black goes with everything. Particularly ashes.&quot;</div></div>
+<div class="section-title">Armor</div>
 
   <div class="item">
     <div class="item-header"><span class="item-name">Catcher's Mitt</span><span class="item-price">900 gp</span></div>
@@ -105,7 +123,9 @@
     <div class="item-flavor">A shield for team players and terrible friends.</div>
   </div>
 
-  <div class="section-title">Accessories</div>
+  
+<div class="item"><div class="item-header"><span class="item-name">RolyPolyOllie <span class="new-tag">✦ NEW</span></span><span class="item-price">1,200 gp</span></div><div class="item-meta">Wondrous suit · Fits Small or Medium creatures</div><div class="item-desc">A full-body arrangement of buckles, restraints, and spectacularly optimistic engineering. Pull the release and become the roundest problem in the room. Very uncomfortable. Your spine is insured; whether the insurer exists is a separate matter.</div><div class="item-mechanic">Wear over clothing or light armor; grants no AC bonus. As an action, activate or release the restraints. While curled, you cannot use your hands, attack normally, or cast spells with somatic components. Your walking speed becomes a 40-ft rolling speed on firm ground; you cannot climb or stand until released.</div><div class="item-mechanic">Once on each of your turns, after rolling at least 20 ft straight toward a creature, use your action to ram it. It makes a DC 14 Dexterity save: on a failure it takes 3d8 bludgeoning damage, and on a success it takes none. Either way, you take 1d8 bludgeoning damage and stop in the nearest unoccupied space.</div><div class="item-mechanic">Colliding with a solid object after the same run-up deals 3d8 bludgeoning damage to the object and 1d8 to you. Objects take damage only if the DM determines the impact can harm them. No extra collision damage from repeated contact during the same turn.</div><div class="item-flavor">&quot;We cover your spine. We do not cover stairs.&quot;</div></div>
+<div class="section-title">Accessories</div>
 
   <div class="item">
     <div class="item-header"><span class="item-name">Spiky Sticky Shoes</span><span class="item-price">550 gp</span></div>
@@ -145,7 +165,9 @@
     <div class="item-desc">A quarter-zip fleece pullover from Old Navy. Color: Goldenrod. Grants resistance to cold.</div>
   </div>
 
-  <div class="section-title">Items</div>
+  
+<div class="item"><div class="item-header"><span class="item-name">Hear no evil brand ear plugs <span class="new-tag">✦ NEW</span></span><span class="item-price">850 gp</span></div><div class="item-meta">Wondrous accessory · No attunement</div><div class="item-desc">Enjoy the peace of mind that comes from having absolutely no idea what horrors are being whispered nearby. Filters curses, mind control, and devilish conversation. Unfortunately, the engineers filed music under the same frequency.</div><div class="item-mechanic">While both plugs are worn, you cannot hear devils or music. You are immune to curses and effects that charm you or control your actions only when those effects require you to hear their source. They do not remove existing effects or protect against effects delivered by sight, touch, or other means.</div><div class="item-mechanic">You also cannot receive beneficial effects that require you to hear music, including musical Bardic Inspiration. Ordinary speech remains audible unless it comes from a devil. Inserting or removing the pair takes an action.</div><div class="item-flavor">&quot;Finally: a world without evil, temptation, or your bard’s second verse.&quot;</div></div>
+<div class="section-title">Items</div>
 
   <div class="item">
     <div class="item-header"><span class="item-name">Bone Comb '78</span><span class="item-price">2,500 gp</span></div>
@@ -153,8 +175,8 @@
     <div class="item-desc">Blue comb made from the blue bones of a blue dragon. Makes you look fly. Once per day as a reaction, run through your hair to grant +10 to a Charisma save.</div>
   </div>
 
-  <div class="item">
-    <div class="item-header"><span class="item-name">Skull</span><span class="item-price">450 gp</span></div>
+  <div class="item sold-out">
+<div class="item-header"><span class="item-name"><s>Skull</s> <span class="sold-label">Purchased</span></span><span class="item-price">450 gp</span></div>
     <div class="item-meta">Item, Common</div>
     <div class="item-desc">It's a skull, humanoid. If you know, you know.</div>
   </div>
@@ -207,17 +229,18 @@
     <div class="item-desc">A faithful depiction of the real thing in PVC. Fool your friends into thinking it's the real Wonder Worm sitting on your shelf!</div>
   </div>
 
-  <div class="section-title">New Arrivals</div>
-<div class="item"><div class="item-header"><span class="item-name">Randy&#x27;s Randy&#x27; Roadster <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A hotrod of a goat. Gets 10 miles to the carrot, but you know how these superstar celebrities are. Too good for us common folk.</div></div>
-<div class="item"><div class="item-header"><span class="item-name">RolyPolyOllie <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A full body suit with restraints which, when activated, curl the wearer into a perfect sphere. Very uncomfortable. While in motion, do 3d8 bludgeoning damage to anything you come into contact with at speed. Take 1d8 damage in the process. But don&#x27;t worry! Your spine is insured!</div></div>
-<div class="item"><div class="item-header"><span class="item-name">Big buddy&#x27;s big wheel <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A large wheel that has been modified to fit any axle—so long as you can make the clearance work. The perfect spare wheel for any occasion!</div></div>
-<div class="item"><div class="item-header"><span class="item-name">Black Gui&#x27;s Scimitar <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">Blacksteel scimitar used by a famous pyromancer from the southern realms. Heavier than normal, but deadlier too. This weapon has inscriptions against the undead in the blade.</div></div>
-<div class="item"><div class="item-header"><span class="item-name">Special Seeds <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">What&#x27;s so special about them? Plant them in the right place and find out!</div></div>
-<div class="item"><div class="item-header"><span class="item-name">Hear no evil brand ear plugs <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">If there&#x27;s evil afoot, you won&#x27;t know! Automatically blocks out the sound of curses, mind control, and devils, but alas they work at the same sound frequency as the sound of music.</div></div>
-<div class="item"><div class="item-header"><span class="item-name">Winer&#x27;s Wine <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">Bad year, but useful potion! Anyone who drinks will be incapable of bemoaning their circumstances when prompted, even to the detriment of their own privacy!</div></div>
+  
+<div class="item"><div class="item-header"><span class="item-name">Randy&#x27;s Randy&#x27; Roadster <span class="new-tag">✦ NEW</span></span><span class="item-price">1,600 gp</span></div><div class="item-meta">Living mount · Large goat</div><div class="item-desc">A hotrod of a goat with polished horns, a magnificent racing beard, and the temperament of a celebrity whose dressing-room carrots arrived unpeeled. Ten miles to the carrot. Too good for us common folk, and painfully aware of it.</div><div class="item-mechanic">AC 12; HP 38; speed 60 ft; STR 18, DEX 14, CON 16, INT 3, WIS 12, CHA 14. Carrying capacity 540 lb. Can carry one Medium rider and gear within that limit.</div><div class="item-mechanic">Horns: +6 to hit, reach 5 ft, one target; 2d6+4 bludgeoning. If it moves 20 ft straight toward the target before hitting, the target makes a DC 14 Strength save or falls prone. It can attack only as an independent mount.</div><div class="item-mechanic">A carrot fuels 10 miles of road travel; normal food, water, rest, and travel limits still apply. At the start of a journey, offer a carrot or succeed on a DC 14 Animal Handling check. On a failure, it refuses to depart for 10 minutes.</div><div class="item-flavor">&quot;Premium horsepower. Technically goatpower.&quot;</div></div>
+
+<div class="item"><div class="item-header"><span class="item-name">Big buddy&#x27;s big wheel <span class="new-tag">✦ NEW</span></span><span class="item-price">250 gp</span></div><div class="item-meta">Wondrous vehicle part · 4-ft diameter · 40 lb</div><div class="item-desc">One enormous wheel, every conceivable axle, and a very small disclaimer concerning clearance. The hub adjusts itself with a deeply reassuring clunk. The rest of your wagon is your responsibility.</div><div class="item-mechanic">Fits any intact land-vehicle axle after 10 minutes of installation. Its hub changes size; the wheel remains 4 ft across and requires suitable clearance. Supports up to 2,000 lb of the vehicle’s total load.</div><div class="item-mechanic">Functions as an ordinary wheel once installed. It does not repair an axle, propel a vehicle, increase its carrying capacity, or compensate for mismatched wheel heights.</div><div class="item-flavor">&quot;The perfect spare. The perfect wagon sold separately.&quot;</div></div>
+
+<div class="item"><div class="item-header"><span class="item-name">Special Seeds <span class="new-tag">✦ NEW</span></span><span class="item-price">400 gp</span></div><div class="item-meta">Wondrous consumable · Packet of 3 seeds</div><div class="item-desc">Three seeds in a packet that keeps rearranging its own planting instructions. What makes them special? Put them in the right place and find out. The Worm considers this a complete horticultural education.</div><div class="item-mechanic">Plant a seed in soil and water it; it is consumed and grows over 1 minute. At a locked door or sealed entrance: roots give advantage on one Strength check to force it open within the next hour. Beside a gap or cliff: a rooted, 50-ft vine grows toward the far side or upward, supporting 500 lb for 1 hour. On a campsite: a bush grows 1d4 berries; each restores 1 HP, and unused berries wither after 24 hours.</div><div class="item-mechanic">The DM chooses the closest applicable location. Elsewhere, it becomes a nonmagical plant of the DM’s choice. A seed cannot break magical seals or create a vine longer than 50 ft.</div></div>
+
+<div class="item"><div class="item-header"><span class="item-name">The Script of Your Life — Authorized Final Draft <span class="new-tag">✦ NEW</span></span><span class="item-price">45,000 gp</span></div><div class="item-meta">Wondrous book · Legendary · Requires attunement</div><div class="item-desc">A velvet-bound screenplay bearing your name beneath a worryingly long list of executive producers. Most pages are blank. One scene is not: a moment of triumph that has not happened yet. Consult the margins to discover how to get there. Apparently free will tests extremely well with audiences.</div><div class="item-mechanic">At attunement, the DM writes one specific, achievable future goal for your character into the final scene. You may propose an ambition, but the Script chooses its foretold outcome. The goal must fit the campaign; it cannot guarantee another creature’s feelings or decisions. Only one goal can be active.</div><div class="item-mechanic">Consult up to 3 times per 7 days, no more than once per day. Each consultation requires 10 uninterrupted minutes and answers one question about achieving the foretold goal. The DM provides one truthful, actionable next step: a person to approach, a place to visit, a preparation to make, or an obstacle to address. If no progress is presently possible, it explains the immediate obstacle.</div><div class="item-mechanic">The Script shows a possible route based on current circumstances, not an unavoidable future. It never compels anyone, completes the goal for you, or guarantees safety. If the route changes, later consultations reflect that change.</div><div class="item-mechanic">Once per 30 days, you may spend 1 hour requesting a Rewrite, replacing the active goal with a new DM-approved foretelling. Reattuning, changing owners, or achieving a goal does not reset these limits. After success, further consultations await the next Rewrite.</div><div class="item-flavor">&quot;You’re the protagonist! Travel, props, supporting cast, and funeral expenses not included.&quot;</div></div>
 <div class="section-title">Antiques</div>
-<div class="item"><div class="item-header"><span class="item-name">A hat in time <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">It&#x27;s a hat with ten clocks. Never run out of time!</div></div>
-<div class="item"><div class="item-header"><span class="item-name">Crime Doesn&#x27;t Pay - but Alimony does Tunic <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A branded tunic from Andy Warthole.</div></div>
+<div class="item"><div class="item-header"><span class="item-name">A hat in time <span class="new-tag">✦ NEW</span></span><span class="item-price">750 gp</span></div><div class="item-meta">Antique · Clockwork hat · Nonmagical</div><div class="item-desc">A hat with ten clocks, each convinced it has the final word on punctuality. Brass faces, little enamel moons, and a brim that has outlived several fashionable empires. Never run out of time; run out of excuses instead.</div><div class="item-mechanic">Weight: 4 lb. Each clock can be set independently. Wind the mechanism once every 7 days to keep all ten running. Its alarms can mark appointments or elapsed time; they are audible within 30 ft. No time travel or magical action benefits.</div><div class="item-flavor">&quot;Ten clocks. Still late.&quot;</div></div>
+
+<div class="item"><div class="item-header"><span class="item-name">Crime Doesn&#x27;t Pay - but Alimony does Tunic <span class="new-tag">✦ NEW</span></span><span class="item-price">1,100 gp</span></div><div class="item-meta">Antique · Designer garment · Nonmagical</div><div class="item-desc">An original Andy Warthole branded tunic, printed in confrontational colors and authenticated by a signature that looks suspiciously like a soup stain. The slogan has ruined three dinner parties and improved two divorces.</div><div class="item-mechanic">Functions as ordinary clothing; grants no AC or magical bonus. Weight: 2 lb. Its value comes from provenance and collector interest. Recognition and resale depend on the buyer; the purchase price is not a guaranteed resale value.</div><div class="item-flavor">&quot;Wearable commentary. Unwearable legal advice.&quot;</div></div>
 <div class="section-title">Potions</div>
   <div class="services-note">A sampling of the vast current stock. Too many bottles to mention. Ask the Worm about availability and special orders.</div>
   <div class="stock-grid">
@@ -231,7 +254,9 @@
     <div class="stock-item"><span class="stock-name">Potion of Darkvision</span><span class="stock-price">120 gp</span></div>
   </div>
 
-  <div class="section-title">Gemstones</div>
+  
+<div class="item"><div class="item-header"><span class="item-name">Winer&#x27;s Wine <span class="new-tag">✦ NEW</span></span><span class="item-price">180 gp</span></div><div class="item-meta">Potion · One bottle, one dose</div><div class="item-desc">A catastrophically bad vintage with an exceptionally useful finish. One sip turns a polite “How are you?” into an invitation to air every grievance the drinker has ever lovingly maintained. Notes of sour grapes, bruised pride, and indiscretion.</div><div class="item-mechanic">Drinking the dose takes an action. For 1 hour, whenever someone directly asks about the drinker’s troubles or circumstances, the drinker must make a DC 13 Wisdom save. On a failure, they spend up to 1 minute truthfully complaining about a relevant grievance, including embarrassing details they would normally keep private. On a success, they may answer normally.</div><div class="item-mechanic">The same questioner can trigger this save only once during the effect. The wine cannot force unrelated secrets, actions, or answers the drinker does not know. A creature immune to being charmed is unaffected.</div><div class="item-flavor">&quot;Cannot help bemoaning their circumstances. Cannot get a refund, either.&quot;</div></div>
+<div class="section-title">Gemstones</div>
   <div class="services-note">Mineral resources available for trade, spell components, or personal enrichment.</div>
   <div class="stock-grid">
     <div class="stock-item"><span class="stock-name">Azurite (opaque, deep blue)</span><span class="stock-price">10 gp</span></div>
@@ -263,13 +288,14 @@
 
   <hr class="divider">
 
-  <div class="section-title">Bodily Enhancement Services</div>
+  <div class="section-title">Bodily Enhancement Services · Vein Rewards</div>
 
-<div class="item">
+<div class="item blood-program">
     <div class="item-header"><span class="item-name">Phlebotomy (Blood Exchange)</span><span class="item-price">We Pay YOU</span></div>
-    <div class="item-meta">Service - Push Your Luck Bloodletting</div>
-    <div class="item-desc">The Worm is parched, and adventurer blood is the spiciest vintage in the Underdark. Step right up, roll up a sleeve, and decide how much of your life force you want to trade for cold, hard cash.</div>
+    <div class="item-meta">Service — Push Your Luck Bloodletting · Your generosity, immediately monetized!</div>
+    <div class="item-desc">Introducing the Wonder Worm Vein Rewards Program: turn the vitality you were merely carrying around into money you can actually spend! Our previous publicity firm kept saying “bloodletting,” “exhaustion,” and “informed decisions.” They have been replaced by a much friendlier font. Choose your draw level below, enjoy personalized attention, and leave lighter in spirit—and in several other measurable respects.</div>
     
+<div class="item-desc"><strong>Pick your perk!</strong> The Good Samaritan earns 25 gp for a little short-rest inconvenience. Upgrade to Woozy Walrus for 75 gp and an authentic exhausted-adventurer glow. Our 200 gp Death Wish tier offers the full commitment experience, with a chance to enjoy a complimentary involuntary lie-down. Your exact costs, risks, and eligibility bonuses appear below; please admire how attractively they are presented.</div>
     <table class="phlebotomy-table">
       <tr><th>Draw Level</th><th>Medical Reality</th><th>Game Consequence</th><th>Base Payout</th></tr>
       <tr>
@@ -299,7 +325,7 @@
       * <strong>Planar/Exotic (Tiefling, Aasimar, Dragonborn):</strong> 2x Payout<br>
       * <strong>Adrenaline Rush (Barbarian):</strong> +50 gp flat bonus if you let him draw while you are actively Raging.
     </div>
-    <div class="item-flavor">"I can stop whenever you want! But... are you sure you don't have just a little more to spare? Mommy needs a new pair of shoes. Literally, I have a lot of very tiny feet."</div>
+    <div class="item-flavor">"You supply the red. We supply the gold! I can stop whenever you want—but do consider how many tiny shoes your generosity could buy. Our former PR company called this a setback. I call it a circulation opportunity."</div>
   </div>
 
   <div class="footer">
