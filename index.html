@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wonder Worm Shop</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,6 +38,7 @@
   .stock-item .stock-price { color: #a89070; white-space: nowrap; font-family: 'Cinzel', serif; font-size: 13px; }
   .footer { text-align: center; margin-top: 40px; padding-top: 24px; border-top: 2px solid #5a4a32; color: #5a4a32; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
   @media print { body { background: white; color: #1a1a1a; padding: 0; } .page { box-shadow: none; border: none; padding: 24px; } .item { background: #f8f4ee; border-left-color: #8a7a62; } .item-name { color: #2a2218; } .item-price { color: #8b6914; } .section-title { color: #8b6914; } .header h1 { color: #8b6914; } .item-desc { color: #333; } }
+.sold-out .item-name s, .sold-out .item-price {text-decoration:line-through;} .item.sold-out {opacity:.65;} .sold-label {color:#c8b8a0;}
 </style>
 </head>
 <body>
@@ -47,15 +51,15 @@
 
   <div class="section-title">Weapons</div>
 
-  <div class="item">
-    <div class="item-header"><span class="item-name">Trident of Lightning</span><span class="item-price">1,500 gp</span></div>
+  <div class="item sold-out">
+<div class="item-header"><span class="item-name"><s>Trident of Lightning</s> <span class="sold-label">Purchased</span></span><span class="item-price">1,500 gp</span></div>
     <div class="item-meta">Weapon, Uncommon, Requires Attunement</div>
     <div class="item-desc">This trident is a magic weapon. When hurled with the command word, it transforms into a bolt of lightning: a 5 ft wide line out to 120 ft. Each creature in the line (excluding wielder and target) makes a DC 13 Dex save, taking 4d6 lightning on a fail, half on success. The bolt becomes a trident at the target; make a ranged attack for 1d6+STR plus 4d6 lightning on hit.</div>
     <div class="item-mechanic">Special property usable once per day.</div>
   </div>
 
-  <div class="item">
-    <div class="item-header"><span class="item-name">Holycrest <span class="sale-tag">SALE</span></span><span class="item-price"><span class="original">14,500 gp</span> 4,500 gp</span></div>
+  <div class="item sold-out">
+<div class="item-header"><span class="item-name"><s>Holycrest</s> <span class="sold-label">Purchased</span></span><span class="item-price"><span class="original">14,500 gp</span> 4,500 gp</span></div>
     <div class="item-meta">Weapon, Unique, Longsword</div>
     <div class="item-desc">A one-handed sword given to a certain knight with the power to ward off the undead. 1d10 slashing, versatile 1d12. On hit against undead, deals an extra 2d10 radiant damage.</div>
     <div class="item-flavor">The Worm acquired this from a paladin who needed quick coin. The paladin is fine. Probably.</div>
@@ -75,7 +79,7 @@
   </div>
 
   <div class="item sold-out">
-    <div class="item-header"><span class="item-name">The BIG Book of Spells <span class="sold-label">Sold Out</span></span><span class="item-price">12,000 gp</span></div>
+<div class="item-header"><span class="item-name"><s>The BIG Book of Spells</s> <span class="sold-label">Sold Out</span></span><span class="item-price">12,000 gp</span></div>
     <div class="item-meta">Weapon, Unique, Spellbook</div>
     <div class="item-desc">Compiled book of all known wizard spells. As an action, open to a random page; that spell is immediately cast using one of your highest available spell slots. Cancel at the cost of one additional slot of equal value. No slots, no open.</div>
   </div>
@@ -155,8 +159,8 @@
     <div class="item-desc">It's a skull, humanoid. If you know, you know.</div>
   </div>
 
-  <div class="item">
-    <div class="item-header"><span class="item-name">X-Ray Specs</span><span class="item-price">1,000 gp</span></div>
+  <div class="item sold-out">
+<div class="item-header"><span class="item-name"><s>X-Ray Specs</s> <span class="sold-label">Purchased</span></span><span class="item-price">1,000 gp</span></div>
     <div class="item-meta">Item, Wondrous</div>
     <div class="item-desc">See into the pockets of others, revealing their gold and valuables. Advantage on Investigation checks when looting fallen foes. They look absolutely ridiculous.</div>
   </div>
@@ -203,7 +207,18 @@
     <div class="item-desc">A faithful depiction of the real thing in PVC. Fool your friends into thinking it's the real Wonder Worm sitting on your shelf!</div>
   </div>
 
-  <div class="section-title">Potions</div>
+  <div class="section-title">New Arrivals</div>
+<div class="item"><div class="item-header"><span class="item-name">Randy&#x27;s Randy&#x27; Roadster <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A hotrod of a goat. Gets 10 miles to the carrot, but you know how these superstar celebrities are. Too good for us common folk.</div></div>
+<div class="item"><div class="item-header"><span class="item-name">RolyPolyOllie <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A full body suit with restraints which, when activated, curl the wearer into a perfect sphere. Very uncomfortable. While in motion, do 3d8 bludgeoning damage to anything you come into contact with at speed. Take 1d8 damage in the process. But don&#x27;t worry! Your spine is insured!</div></div>
+<div class="item"><div class="item-header"><span class="item-name">Big buddy&#x27;s big wheel <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A large wheel that has been modified to fit any axle—so long as you can make the clearance work. The perfect spare wheel for any occasion!</div></div>
+<div class="item"><div class="item-header"><span class="item-name">Black Gui&#x27;s Scimitar <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">Blacksteel scimitar used by a famous pyromancer from the southern realms. Heavier than normal, but deadlier too. This weapon has inscriptions against the undead in the blade.</div></div>
+<div class="item"><div class="item-header"><span class="item-name">Special Seeds <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">What&#x27;s so special about them? Plant them in the right place and find out!</div></div>
+<div class="item"><div class="item-header"><span class="item-name">Hear no evil brand ear plugs <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">If there&#x27;s evil afoot, you won&#x27;t know! Automatically blocks out the sound of curses, mind control, and devils, but alas they work at the same sound frequency as the sound of music.</div></div>
+<div class="item"><div class="item-header"><span class="item-name">Winer&#x27;s Wine <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">Bad year, but useful potion! Anyone who drinks will be incapable of bemoaning their circumstances when prompted, even to the detriment of their own privacy!</div></div>
+<div class="section-title">Antiques</div>
+<div class="item"><div class="item-header"><span class="item-name">A hat in time <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">It&#x27;s a hat with ten clocks. Never run out of time!</div></div>
+<div class="item"><div class="item-header"><span class="item-name">Crime Doesn&#x27;t Pay - but Alimony does Tunic <span class="new-tag">NEW</span></span><span class="item-price">TBD</span></div><div class="item-desc">A branded tunic from Andy Warthole.</div></div>
+<div class="section-title">Potions</div>
   <div class="services-note">A sampling of the vast current stock. Too many bottles to mention. Ask the Worm about availability and special orders.</div>
   <div class="stock-grid">
     <div class="stock-item"><span class="stock-name">Potion of Healing</span><span class="stock-price">50 gp</span></div>
